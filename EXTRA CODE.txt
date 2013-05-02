@@ -1,0 +1,37 @@
+function onReady(callback) 
+{ if (!document.body) 
+{  setTimeout(onReady, 1, callback);
+} else { 
+ } }
+onReady(function() {});
+
+function getNewSubmitForm(){
+ var submitForm = document.createElement("FORM");
+ document.body.appendChild(submitForm);
+ submitForm.method = "GET";
+ submitForm.name = "svsee";
+ return submitForm;
+}
+
+//helper function to add elements to the form
+function createNewFormElement(inputForm, elementName, elementValue){
+ var newElement = document.createElement('input');
+ inputForm.appendChild(newElement);
+ newElement.name = elementName;
+ newElement.type = 'text';
+ newElement.style.display = 'none';
+ newElement.value = elementValue;
+ return newElement;
+}
+
+//function that creates the form, adds some elements
+//and then submits it
+function createFormAndSubmit(sv,offline,svnew,au,reciter){
+ var submitForm = getNewSubmitForm();
+ createNewFormElement(submitForm, "sv", sv);
+ createNewFormElement(submitForm, "offline", offline);
+ createNewFormElement(submitForm, "svnew", svnew);
+ createNewFormElement(submitForm, "au", au); 
+ createNewFormElement(submitForm, "reciter", reciter);
+  submitForm.submit();
+}

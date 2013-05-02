@@ -1,0 +1,19 @@
+BUGS
+------
+**** move uneeded extra JS code down
+**** Google analytics @ bottom of HC
+**** seperate js error function which checks using if surah and verse > # - go to next surah - set hidden text box to next surah and verse not variable!!!!!!!!
+**** Tanzil.net Quran - no mistakes
+**** put all Js in external file. - playerapi.js - hcapi.js
+***fix validate surah/verse function - add all values or simply sending not found images to next surah
+make it faster to load - swf. - move to top of see function
+******automatically continue to next surah after last verse.
+seperate head and body scripts
+backspace code priority on top header of page.
+
+EASY ADD
+--------
+split actual ":" also so i can add to toolbar.
+Easy promotion banners and text templates.
+popup down - copy bookmarked url + open in new window.
+

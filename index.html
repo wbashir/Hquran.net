@@ -1,0 +1,512 @@
+<html>
+<head>
+
+<!-- made by www.metatags.info -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="description" content="Verse By Verse Quran with Audio" />
+<meta name="keywords" content="husary, 128kbps, 64kbps, 192kbps, quran, holy quran, mp3 quran, holy quran, verse quran, holy quran" />
+<meta name="author" content="Asaad">
+<meta name="robots" content="index, follow" />
+<meta name="revisit-after" content="1 days" />
+<meta name="google-site-verification" content="W45jd4Zkw0PgisbIs3IAavj8pw6bB3bKLaTQneWkpXY" />
+<title>hQuran - Holy Quran</title>
+<!-- quran, holy, verse --><cmt>
+
+
+<style type= "text/css">BODY{margin-left:10; margin-right:10; margin-top:5; margin-bottom:5;font-family:Trebuchet MS;font-size:10px;color:black;}html{overflow:-moz-scrollbars-vertical;overflow:scroll;}
+
+
+</style>
+
+<script type="text/javascript" src="js/loadxml.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript" src="js/header.js"></script>
+
+<script type="text/javascript" src="js/backspace.js"></script>
+
+<script type="text/javascript" src="js/swfobject.js"></script>
+
+
+
+<script type="text/javascript" src="js/validate.js"></script>
+<script type="text/javascript" src="js/playerapi.js"></script>
+<script type="text/javascript" src="js/playingmodes.js"></script>
+
+<script type="text/javascript" src="js/csspopup.js"></script>
+<script type="text/javascript" src="js/jscolor.js"></script>
+
+<script type="text/javascript" src="js/bgcycle.js"></script>
+
+<script type="text/javascript">
+
+// Get the verse image from 3rd party
+function getImageURI() {
+	return 'http://www.everyayah.com/data/images_png/' + validsurahverse("surahverse","text") + '.png';
+}
+
+// What happens when you click the reset link, simply clears *almost* all the values
+function resetall() {
+	document.getElementById('chk1').checked = 0;
+	document.getElementById('chk2').checked = 0;
+	document.getElementById('chk3').checked = 0;
+	document.getElementById('chk4').checked = 0;
+	document.getElementById('chk5').checked = 0;
+	document.getElementById('chk6').checked = 0;
+	document.getElementById('chk7').checked = 0;
+	document.getElementById('chk8').checked = 0;
+	document.getElementById('chk9').checked = 0;
+  document.getElementById('reciter').options[0].selected=true;
+	document.forms["svsee"].au.value = "FFFFFF";
+	reloadpage();
+}
+
+function reloadpage(){
+	document.getElementById("sv").value = validsurahverse("surahverse","default");
+	document.forms["svsee"].submit();
+
+}
+
+
+
+function onloadevents() {
+
+setc();
+
+	if (querySt("chk1") == "on") {
+		document.getElementById('chk1').checked = 1;
+	}
+	if (querySt("chk2") == "on") {
+		document.getElementById('chk2').checked = 1;
+	}
+	if (querySt("chk3") == "on") {
+		document.getElementById('chk3').checked = 1;
+	}
+	if (querySt("chk4") == "on") {
+		document.getElementById('chk4').checked = 1;
+	}
+	if (querySt("chk5") == "on") {
+		document.getElementById('chk5').checked = 1;
+	}
+	if (querySt("chk6") == "on") {
+		document.getElementById('chk6').checked = 1;
+	}
+
+	if (querySt("select1") == "chk7") {
+		document.getElementById('chk8').checked = 0;
+		document.getElementById('chk9').checked = 0;
+		document.getElementById('chk7').checked = 1;
+	}
+	if (querySt("select1") == "chk8") {
+		document.getElementById('chk7').checked = 0; // one mode at a time.
+		document.getElementById('chk9').checked = 0; // one mode at a time.
+		document.getElementById('chk8').checked = 1;
+	}
+	if (querySt("select1") == "chk9") {
+		document.getElementById('chk7').checked = 0; // one mode at a time.
+		document.getElementById('chk8').checked = 0;
+		document.getElementById('chk9').checked = 1; // one mode at a time.
+	}
+
+
+	if (querySt("bchk") == "on") {
+		document.getElementById('bchk').checked = 1;
+	}
+
+	// finally toggle respective mode display.
+	if (document.getElementById("chk7").checked) togglemode("Mujawwad Mode is on, click <u>Continuous</u> optionally.");
+	if (document.getElementById("chk8").checked) togglemode("Murratal Mode is on, click <u>Continuous</u> optionally.");
+	if (document.getElementById("chk9").checked) togglemode("Cycling through all (33 Qurra), click <u>Continuous</u> optionally.");
+	initAudioPlayer('player', 300, 20, 'mediaPlayer');
+	
+	document.getElementById('au').value = querySt("au");
+	document.getElementById('np').value = querySt("np");
+	document.getElementById('sv').value = validsurahverse("surahverse","next");	
+	document.getElementById('svnew').value = validsurahverse("surahverse","audio");
+	//document.getElementById('rec').value = validatereciter();
+	document.getElementById('reciter').value = validatereciter();
+		document.getElementById('theurl').value = location.href;
+	setURLandImage(true);
+	document.getElementById('sv').focus();
+	document.getElementById('reciter').onchange = new Function("setURLandImage(false);")
+	// Ok to go back
+	backflag = true;
+}
+
+</script>
+</head>
+<body id="main_body" onload="onloadevents();">
+<span id="mediaPlayer2" name="mediaPlayer2" style="display:none;float:left;text-align:center;width:100%;"></span>
+
+<a id="displayTextMAIN" href="javascript:toggleMAIN();" style="background-color:yellow"><font color="green"><b>Show</b></font></a>&nbsp;-&nbsp;
+<a href="http://hquran.net/hcm/hcm.php">Mini</a>&nbsp;-&nbsp;<b>Coding help needed - info@hquran.net</b>
+<br><b>UP / DOWN / ENTER - SPACE / CTRL</b>
+
+	<div style="text-align:center;width:100%;">	
+		<form id="svsee" name="svsee" method="get">
+
+
+<div id="toggleTextMAIN" style="display: none;width:100%;text-align:center;">
+
+		<!--<a href="http://www.quranbar.com" target="_blank"><img border="0" src="tophc.png" style="vertical-align: middle;"></a><br>-->
+			<font size="8"><a href="#" style="vertical-align: middle;text-decoration:none" onclick='reloadpage()'>hQuran.net</a></font><br>
+			<!--<img src="huffadhcompanion.png" border="0" style="vertical-align: middle;" onclick='reloadpage()'><br>-->
+			<!--<a href="" id="url" target="_blank" title="Download the verse in mp3 format (Right click)">D</a>&nbsp;|&nbsp;-->
+
+			<a href="me_quran_volt_newmet.zip" target="_blank" title="if using text, download and install this font.">Font</a>&nbsp;|&nbsp;
+			<a href="http://www.everyayah.com/data/status.php" target="_blank" title="Verses Don't Play? Missing Verses information, and download area.">Resources</a>&nbsp;|&nbsp;
+			<a href=""  onclick="javascript: alert('Input: 1:1 , 67, etc...\n\n*************Click on Logo: Apply options.*************\n\nEnter: Next Verse\n\nBackspace: Previous Verse\n\nClick on Verse Image: Background Color Cycle'); return false;">Instructions</a>&nbsp;|&nbsp;
+			<a href="" onclick="javascript: alert('About: \n\nFrom Quranbar.com\n\nIdea and JW Player was taken from : http://www.versebyversequran.com\nOriginally made by Hamid Zarrabi-Zadeh in PHP\nThis is a pure Javascript version with translation.'); return false;">About</a>&nbsp;|&nbsp;
+
+			<a id="displayText" href="javascript:toggle();" style="background-color:yellow"><font color="green"><b>Options / Save</b></font></a>&nbsp;
+			<a href="javascript:resetall();"><b>(Reset)</b></a>&nbsp;
+<br>
+<div id="toggleTextqurra" style="background-color:yellow;display: none;width:100%;text-align:center;">
+</div>
+<br>Salah Al Budair, Ahmed Neana, Husary (Muallim), Karim Mansoori (Iran), Khalefa Al-Tunaiji,<bR> Khalid Abdullah al-Qahtanee, Mahmoud Ali Al-Banna, Muhammad AbdulKareem, Nasser Alqatami,<br> Yasser Ad-Dussary Added!<br>
+<br>The audio only works in Chrome, and IE. Not in Opera or Firefox. 
+
+</div>
+
+<br><a href=""style="vertical-align:middle;text-decoration:none" id="url" target="_blank" title="Download the verse in mp3 format (Right click)"><font size="6">&hearts;</font></a>&nbsp;
+<input style="vertical-align: middle;width:110px;height:40px;font-size:30px;font-family:arial" id="sv" name="sv" type="text"  value=""/>
+			<input id="np" name="np" type="hidden" maxlength="255" value=""/>
+			<input id="svnew" name="svnew" type="hidden" maxlength="255" value=""/>
+			<!--<input id="rec" name="rec" type="hidden" maxlength="255" value=""/>-->
+			<input id="au" name="au" type="hidden" value="FFFFFF"/>
+			
+  <select style="vertical-align: middle;" id="reciter" name="reciter">
+     <option value="Saood_ash-Shuraym_64kbps">
+Saood bin Ibraaheem Ash-Shuraym 64kbps  
+    </option>
+
+    <option value="Saood_ash-Shuraym_128kbps">
+Saood bin Ibraaheem Ash-Shuraym 128kbps  
+    </option>
+    
+         <option value="Salaah_AbdulRahman_Bukhatir_128kbps">
+Salaah AbdulRahman Bukhatir 128kbps  
+    </option>
+
+ <option value="Salah_Al_Budair_128kbps">
+Salah Al Budair 128kbps  
+    </option>
+
+
+    <option value="Abdul_Basit_Murattal_64kbps">
+Abdul Basit Murattal 64kbps
+    </option>
+    <option value="Abdul_Basit_Murattal_192kbps">
+Abdul Basit Murattal 192kbps
+    </option>
+    <option value="Abdul_Basit_Mujawwad_128kbps">
+Abdul Basit Mujawwad 128kbps
+    </option>
+    
+            <option value="Abdullaah_3awwaad_Al-Juhaynee_128kbps">
+Abdullaah 3awwaad Al-Juhaynee 128kbps  
+    </option>
+
+    
+    <option value="Abdullah_Basfar_32kbps">
+Abdullah Basfar 32kbps
+    </option>
+    <option value="Abdullah_Basfar_64kbps">
+Abdullah Basfar 64kbps
+    </option>
+    <option value="Abdullah_Basfar_192kbps">
+Abdullah Basfar 192kbps 
+    </option>
+
+
+    <option value="Abdullah_Matroud_128kbps">
+Abdullah Matroud 128kbps 
+    </option>
+    
+        
+    
+    
+    <option value="Abdurrahmaan_As-Sudais_64kbps">
+Abdurrahmaan As-Sudais 64kbps
+    </option>
+    <option value="Abdurrahmaan_As-Sudais_192kbps">
+Abdurrahmaan As-Sudais 192kbps
+    </option>
+    <option value="AbdulSamad_64kbps_QuranExplorer.Com">
+AbdulSamad QuranExplorer.Com 64kbps
+    </option>
+    <option value="Abu_Bakr_Ash-Shaatree_64kbps">
+Abu Bakr Ash-Shaatree 64kbps  
+    </option>
+
+    <option value="Abu_Bakr_Ash-Shaatree_128kbps">
+Abu Bakr Ash-Shaatree 128kbps  
+    </option>
+
+    <option value="Ahmed_Neana_128kbps">
+Ahmed Neana 128kbps
+    </option>
+
+
+
+    <option value="Ahmed_ibn_Ali_al-Ajamy_64kbps_QuranExplorer.Com">
+Ahmed ibn Ali al-Ajamy QuranExplorer.Com 64kbps  
+    </option>
+    <option value="Ahmed_ibn_Ali_al-Ajamy_128kbps_ketaballah.net">
+Ahmed ibn Ali al-Ajamy KetabAllah.Net 128kbps   
+    </option>
+    <option value="Alafasy_64kbps">
+      Alafasy 64kbps
+    </option>
+    <option value="Alafasy_128kbps">
+      Alafasy 128kbps
+    </option>
+    <option value="Ghamadi_40kbps">
+      Ghamadi 40kbps
+    </option>
+    <option value="Hani_Rifai_64kbps">
+Hani Rifai 64kbps  
+    </option>
+
+    <option value="Hani_Rifai_192kbps">
+Hani Rifai 192kbps  
+    </option>
+    <option value="Husary_64kbps">
+      Husary 64kbps
+    </option>
+      <option value="Husary_128kbps">
+      Husary 128kbps
+    </option>
+
+      <option value="Husary_Muallim_128kbps">
+      Husary (Muallim) 128kbps
+    </option>
+
+
+
+
+    <option value="Husary_128kbps_Mujawwad">
+Husary Mujawwad 128kbps  
+    </option>
+    <option value="Husary_Mujawwad_64kbps">
+      Husary Mujawwad 64kbps
+    </option>
+  
+    <option value="Hudhaify_32kbps">
+      Hudhaify 32kbps
+    </option>
+    <option value="Hudhaify_64kbps">
+      Hudhaify 64kbps
+    </option>
+  
+    <option value="Hudhaify_128kbps">
+      Hudhaify 128kbps
+    </option>
+    
+    <option value="Ibrahim_Akhdar_32kbps">
+Ibrahim Akhdar 32kbps  
+    </option>
+
+    <option value="Karim_Mansoori_40kbps">
+Karim Mansoori (Iran) 40kbps
+    </option>
+
+   <option value="khalefa_al_tunaiji_64kbps">
+Khalefa Al-Tunaiji 64kbps
+    </option>
+
+
+   <option value="Khaalid_Abdullaah_al-Qahtaanee_192kbps">
+Khalid Abdullah al-Qahtanee 192kbps
+    </option>
+
+
+    
+    <option value="Maher_AlMuaiqly_64kbps">
+Maher Al Muaiqly 64kbps  
+    </option>
+    <option value="MaherAlMuaiqly128kbps">
+Maher Al Muaiqly 128kbps (2 files missing) 
+    </option>   
+
+
+    <option value="mahmoud_ali_al_banna_32kbps">
+Mahmoud Ali Al-Banna 32kbps
+    </option> 
+
+
+
+    
+    <option value="Menshawi_16kbps">
+Menshawi 16kbps  
+    </option>
+
+    <option value="Menshawi_32kbps">
+Menshawi 32kbps (303 files missing) 
+    </option>
+    <option value="Minshawy_Mujawwad_64kbps">
+Minshawy Mujawwad 64kbps  
+    </option>
+    <option value="Minshawy_Mujawwad_192kbps">
+Minshawy Mujawwad 192kbps  
+    </option>
+    <option value="Minshawy_Murattal_128kbps">
+Minshawy Murattal 128kbps  
+    </option>
+    
+    <option value="Mohammad_al_Tablaway_64kbps">
+Mohammad al Tablaway 64kbps  
+    </option>
+    <option value="Mohammad_al_Tablaway_128kbps">
+Mohammad al Tablaway 128kbps  
+    </option>
+
+
+    <option value="Muhammad_AbdulKareem_128kbps">
+Muhammad AbdulKareem 128kbps
+    </option>
+
+
+
+    <option value="Muhammad_Ayyoub_32kbps">
+Muhammad Ayyoub 32kbps (2 files missing) 
+    </option>
+    <option value="Muhammad_Ayyoub_64kbps">
+Muhammad Ayyoub 64kbps  
+    </option>
+    <option value="Muhammad_Ayyoub_128kbps">
+Muhammad Ayyoub 128kbps  
+    </option>
+    
+    <option value="Muhammad_Jibreel_64kbps">
+
+      Muhammad_Jibreel_64kbps
+    </option>
+    <option value="Muhammad_Jibreel_128kbps">
+      Muhammad_Jibreel_128kbps
+    </option>
+    
+        <option value="Muhsin_Al_Qasim_192kbps">
+Muhsin Al Qasim 192kbps  
+    </option>
+
+
+        <option value="Nasser_Alqatami_128kbps">
+Nasser Alqatami 128kbps
+    </option>
+
+
+
+
+    <option value="Parhizgar_48kbps">
+Parhizgar 64Kbps  
+    </option>
+
+    <option value="Yasser_Ad-Dussary_128kbps">
+Yasser Ad-Dussary 128kbps 
+    </option>
+
+
+
+
+        <option value="English/Ibrahim_Walk_192kbps_TEST">
+English Ibrahim Walk 192kbps  
+    </option>
+
+
+    
+    <option value="MultiLanguage/Basfar_Walk_192kbps">
+MultiLanguage Basfar Walk 192kbps (9 files missing) 
+    </option>
+
+
+    
+    
+  </select>
+  
+
+<input type=checkbox style="vertical-align: middle;" name=chk5 id=chk5 title="Continuous">C&nbsp;
+<input type=checkbox style="vertical-align: middle;" name=chk4 id=chk4 onclick='reloadpage()' title="Repeat">R&nbsp;
+<input type=checkbox style="vertical-align: middle;" name=bchk id=bchk title="Backwards" onclick="btoggle()">B
+<div id="toggleText" style="display: none;width:100%;text-align:center;">
+<span style="display:inline-block;width:460px;background-color:#C6FFA6;border:1px dashed green;margin:1px;padding:4px;">
+<p style="font-size:15px;background-color:yellow">Click Logo to Apply Changes <B><I>(Will take a while to load)</I></B></p>
+
+<span style="display:inline-block;text-align:left;width:150px;">
+		<input type=checkbox name=chk1 id=chk1 >Font instead of images<br>
+		<input type=checkbox name=chk2 id=chk2>English translation<br>
+		<input type=checkbox name=chk3 id=chk3>English trans<u><I>litration</I></u><br>
+
+		</span>
+		
+<span style="display:inline-block;text-align:left;width:150px;">
+		<input type=checkbox name=chk6 id=chk6>Single Verse Fullscreen<br>
+		</span>
+		
+<span style="display:inline-block;text-align:left;width:150px;">
+		<!--<input type=checkbox name=chk9 id=chk9 onclick="reloadpage();">Cycle All<br>-->
+		<!--<input type=checkbox name=chk7 id=chk7 onclick="reloadpage();">Mujawwad Mode<br>-->
+		<!--<input type=checkbox name=chk8 id=chk8 onclick="reloadpage();">Murratal Mode-->
+
+
+		<input type=radio name=select1 id=chk9 value=chk9 onclick="reloadpage();">Cycle All<br>
+		<input type=radio name=select1 id=chk7 value=chk7 onclick="reloadpage();">Mujawwad Mode<br>
+		<input type=radio name=select1 id=chk8 value=chk8 onclick="reloadpage();">Murratal Mode
+
+		</span>
+		</span>		
+</div>
+</form>
+
+<div id="toggleText2" style="display: none;width:100%;text-align:center;">
+<span style="display:inline-block;width:460px;background-color:lightblue;border:1px dashed green;margin:1px;padding:10px">
+Change Background Color:<input id="buttonc" type="text" style="vertical-align: middle;" class="color {pickerPosition:'top',pickerMode:'HVS'}" onchange="document.forms['svsee'].au.value=this.value;document.getElementsByTagName('BODY')[0].style.backgroundColor = '#'+this.color">
+</span>
+</div>
+  <div id="toggleText3" style="display: none;width:100%;text-align:center;">
+<span style="display:inline-block;width:460px;background-color:lightpink;border:1px dashed black;margin:1px;padding:10px">
+Save URL:<textarea id="theurl" style="vertical-align: middle;" rows="5" cols="50"> a</textarea>
+</span>
+</div>
+
+<div id="topclean" style="float:left; text-align:center;width:100%;height:20px;">
+<div id="mediaPlayer" name="mediaPlayer" ></div></div>
+		
+		<center>
+		<div id="versenumber" style="clear:both;width:70%;" title="Verse Number."></div>
+		<div id="verseImage" style="clear:both;width:100%;font-size: 33px;font-family:'me_quran','Traditional Arabic';" onclick="invertme();" title="Click to cycle background colors."></div>
+		<div id="versetranslit" style="clear:both;width:70%;font-size: 23px;" title="Transliteration of Verse."></div>
+		<div id="versetrans" style="clear:both;width:70%;font-size: 15px;" title="Translation of Verse."></div>		
+		</center>
+		
+<div id="buffer" style="display:none;"></div>
+<div id="bufferover" style="">
+
+<div id="bufferplayer"></div>
+</div>	
+
+</div>
+
+<script>
+function setURLandImage(autop) {
+        document.getElementById('url').href = getFileURI(false, false);
+        document.getElementById('versenumber').innerHTML = '<font size="+2"><i><b>' + validsurahverse("surahverse","default") + '</b></i></font>';
+        if (document.getElementById('chk1').checked == 0) {
+                document.getElementById('verseImage').innerHTML = '<img style="vertical-align: middle;" src="' + getImageURI() + '" />';
+        }
+        if (document.getElementById('chk1').checked == 1) {
+                document.getElementById('verseImage').innerHTML = '' + validsurahverse("surahverse","transtext") + '<br>';
+        }
+        if (document.getElementById('chk2').checked == 1) {
+                document.getElementById('versetrans').innerHTML = '<br>' + validsurahverse("surahverse","trans") + '<br>';
+        }
+        if (document.getElementById('chk3').checked == 1) {
+                document.getElementById('versetranslit').innerHTML = '<br>' + validsurahverse("surahverse","lit") + '';
+        }
+
+        if (!autop) recite();
+
+}
+</script>
+
+	</body>
+	</html>
